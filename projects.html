@@ -99,6 +99,7 @@
     <div class="container">
       <div class="projects-grid-full">
 
+
         <!-- Project 1 - PharmaBot -->
         <article class="project-card-full project-featured" data-modal="modal-pharma">
           <div class="project-card-image">
@@ -241,6 +242,103 @@
             <div class="project-card-footer">
               <a href="https://github.com/Manas-arumalla/Steady-Stride_Self-balancing-robot.git" target="_blank"
                 class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+
+
+        <!-- Project: Manipulator Trajectory -->
+        <article class="project-card-full" data-modal="modal-manipulator">
+          <div class="project-card-image">
+            <img src="assets/manipulator-3d-trajectory.png" alt="Manipulator Trajectory">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Python</span>
+              <span>Kinematics</span>
+              <span>Control</span>
+              <span>Simulation</span>
+            </div>
+            <h3 class="project-card-title">6-DOF Robotic Arm Planner</h3>
+            <p class="project-card-desc">
+              Custom simulator for 6-DOF robotic arm demonstrating forward/inverse kinematics,
+              trajectory planning, and closed-loop control.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/6DOF-Manipulator-trajectory-planning" target="_blank"
+                class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project: Path Planning Algorithms -->
+        <article class="project-card-full project-featured" data-modal="modal-pathplan">
+          <div class="project-card-image">
+            <img src="assets/path-planners-comparison.png" alt="Path Planning Algorithms">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Python</span>
+              <span>NumPy</span>
+              <span>Matplotlib</span>
+              <span>A* / RRT / PSO</span>
+            </div>
+            <h3 class="project-card-title">Mobile Robot Path Planning Algorithms</h3>
+            <p class="project-card-desc">
+              Comprehensive implementation and visualization of 7 path planning algorithms (A*, RRT, PSO, APF)
+              for differential-drive mobile robots.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/Differential-Drive-Path-planners" target="_blank"
+                class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project: TurtleBot3 PlanSys2 -->
+        <article class="project-card-full" data-modal="modal-turtlebot">
+          <div class="project-card-image">
+            <img src="assets/turtlebot3-house.png" alt="TurtleBot3 PlanSys2">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>ROS 2</span>
+              <span>PlanSys2</span>
+              <span>PDDL</span>
+              <span>Nav2</span>
+            </div>
+            <h3 class="project-card-title">TurtleBot3 AI Task Planning</h3>
+            <p class="project-card-desc">
+              Autonomous task orchestration for TurtleBot3 using PlanSys2 and PDDL domain specification
+              integrated with ROS 2 navigation stack.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/turtlebot3-plansys2" target="_blank" class="project-card-link">
                 <i class="fa-brands fa-github"></i>
                 <span>View Code</span>
               </a>
@@ -623,6 +721,170 @@
             class="modal-btn">
             <i class="fa-brands fa-github"></i>
             <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Path Planning Algorithms Modal -->
+  <div id="modal-pathplan" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>Mobile Robot Path Planning Algorithms</h2>
+        <p class="modal-subtitle">Comparative Algorithm Analysis</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/path-planners-comparison.png" alt="Path Planning Comparison">
+          <img src="assets/path-planners-astar.png" alt="A* Path Planning">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>A comprehensive implementation of 7 path planning algorithms for differential-drive mobile robots with
+            enhanced visualization capabilities. The project emphasizes comparative algorithm analysis with a modular
+            architecture for easy extension.</p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>Grid-Based:</strong> A* (Euclidean heuristic) and Dijkstra (uniform cost) - both optimal</li>
+            <li><strong>Sampling-Based:</strong> RRT, RRT* (asymptotic rewiring), PRM (Probabilistic Roadmap)</li>
+            <li><strong>Optimization-Based:</strong> PSO (Particle Swarm Optimization) - locally optimal</li>
+            <li><strong>Reactive:</strong> APF (Artificial Potential Fields)</li>
+          </ul>
+
+          <h3>Technical Highlights</h3>
+          <ul>
+            <li>Dark-theme visualization with algorithm-specific color palettes</li>
+            <li>Path gradient effects and glow rendering</li>
+            <li>Robot simulation with trajectory tracking</li>
+            <li>Performance metrics (computational time, path length analysis)</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Python</span>
+            <span>NumPy</span>
+            <span>Matplotlib</span>
+            <span>SciPy</span>
+            <span>A*</span>
+            <span>RRT</span>
+            <span>PRM</span>
+            <span>PSO</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/Differential-Drive-Path-planners" target="_blank"
+            class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TurtleBot3 PlanSys2 Modal -->
+  <div id="modal-turtlebot" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>TurtleBot3 AI Task Planning</h2>
+        <p class="modal-subtitle">ROS 2 + PlanSys2 Integration</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/turtlebot3-house.png" alt="TurtleBot3 Simulation">
+          <img src="assets/turtlebot3-gazebo.png" alt="TurtleBot3 World">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>A ROS 2 project demonstrating autonomous task planning for TurtleBot3 using PlanSys2 AI planning framework.
+            The project showcases PDDL-based domain specification for automated action sequence generation in a washroom
+            cleaning scenario.</p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>AI Planning:</strong> Autonomous task orchestration using PlanSys2</li>
+            <li><strong>PDDL Domain:</strong> Navigate and Clean actions with location predicates</li>
+            <li><strong>Nav2 Integration:</strong> Full navigation stack for path execution</li>
+            <li><strong>Automatic Planning:</strong> Optimal 5-step action sequence generation</li>
+          </ul>
+
+          <h3>Scenario</h3>
+          <p>Robot starts at entry point and must clean two washroom areas (basin, commode) in optimal order. The
+            planner automatically generates the navigation and cleaning sequence.</p>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>ROS 2 Humble</span>
+            <span>PlanSys2</span>
+            <span>PDDL</span>
+            <span>TurtleBot3</span>
+            <span>Nav2</span>
+            <span>Gazebo</span>
+            <span>Python</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/turtlebot3-plansys2" target="_blank" class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6-DOF Manipulator Modal -->
+  <div id="modal-manipulator" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>6-DOF Robotic Arm Trajectory Planning</h2>
+        <p class="modal-subtitle">UR5-Based Simulator</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/manipulator-3d-trajectory.png" alt="3D Trajectory">
+          <img src="assets/manipulator-joints.png" alt="Joint Tracking">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>A Python-based simulator for robotic arm control demonstrating forward/inverse kinematics, trajectory
+            planning, and closed-loop feedback control. Based on the UR5 industrial robot with 6 revolute joints in
+            anthropomorphic configuration.</p>
+
+          <h3>Trajectory Planners</h3>
+          <ul>
+            <li><strong>Cubic Polynomial:</strong> Smooth position and velocity profiles</li>
+            <li><strong>Quintic Polynomial:</strong> Adds smooth acceleration constraints</li>
+            <li><strong>Trapezoidal Velocity:</strong> Constant acceleration/deceleration phases</li>
+          </ul>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>Forward/Inverse Kinematics using Denavit-Hartenberg convention</li>
+            <li>Multi-waypoint path planning support</li>
+            <li>PID control with anti-windup mechanisms</li>
+            <li>3D visualization comparing desired vs actual end-effector paths</li>
+            <li>Comprehensive performance analysis plots</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Python</span>
+            <span>NumPy</span>
+            <span>SciPy</span>
+            <span>Matplotlib</span>
+            <span>DH Convention</span>
+            <span>PID Control</span>
+            <span>Kinematics</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/6DOF-Manipulator-trajectory-planning" target="_blank"
+            class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            View on GitHub
           </a>
         </div>
       </div>
