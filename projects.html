@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Manas Reddy Arumalla - Robotics & Automation Engineer">
+  <title>Projects | Manas Reddy Arumalla</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="projects.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-bracket">{</span>
+      <span class="logo-text">MR</span>
+      <span class="logo-bracket">}</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-left"></i> Home</a></li>
+      <li><a href="#" class="nav-link active">Projects</a></li>
+    </ul>
+
+    <a href="assets/Resume.pdf" target="_blank" class="nav-cta">
+      <span>Resume</span>
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+
+    <button class="mobile-menu-btn" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="#" class="mobile-nav-link">Projects</a></li>
+    </ul>
+    <a href="assets/Resume.pdf" target="_blank" class="mobile-nav-cta">Download Resume</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="projects-hero">
+    <div class="container">
+      <div class="projects-hero-content">
+        <a href="index.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to Home</span>
+        </a>
+        <h1 class="projects-hero-title">
+          Project <span class="gradient-text">Gallery</span>
+        </h1>
+        <p class="projects-hero-desc">
+          A collection of my robotics and engineering projects, blending innovation,
+          problem-solving, and technical expertise. Click on any project to learn more.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid Section -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-grid-full">
+
+
+        <!-- Project 1 - PharmaBot -->
+        <article class="project-card-full project-featured" data-modal="modal-pharma">
+          <div class="project-card-image">
+            <img src="assets/Pharma.png" alt="PharmaBot">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Raspberry Pi</span>
+              <span>CoppeliaSim</span>
+              <span>Python</span>
+              <span>OpenCV</span>
+            </div>
+            <h3 class="project-card-title">PharmaBot: Autonomous Medicine Delivery</h3>
+            <p class="project-card-desc">
+              Autonomous medicine delivery robot developed for E-Yantra Competition (IIT Bombay).
+              Implements Dijkstra's algorithm for path planning and computer vision for navigation.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/eyrc22_Pharma_Bot.git" target="_blank"
+                class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 - Sony SSUP -->
+        <article class="project-card-full" data-modal="modal-sony">
+          <div class="project-card-image">
+            <img src="assets/Sony.jpg" alt="Sony SSUP">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Iot & Sensors</span>
+              <span>Robot Dynamics</span>
+              <span>Control Systems</span>
+            </div>
+            <h3 class="project-card-title">COWKIN: Smart Cow Health Monitoring</h3>
+            <p class="project-card-desc">
+              Sony Spresense-based system for real-time livestock health monitoring including
+              temperature, activity levels, and geolocation tracking.
+            </p>
+            <div class="project-card-footer">
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 - Inverted Pendulum -->
+        <article class="project-card-full" data-modal="modal-pend">
+          <div class="project-card-image">
+            <img src="assets/Invpend.png" alt="Inverted Pendulum">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>MATLAB</span>
+              <span>MuJoCo</span>
+              <span>Control Systems</span>
+            </div>
+            <h3 class="project-card-title">Two-Wheeled Inverted Pendulum</h3>
+            <p class="project-card-desc">
+              Advanced control strategies including LQR, MPC, SMC and 8 other controllers
+              for stabilizing a two-wheeled inverted pendulum.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/Control-strategies-for-two-wheeled-inverted-pendulum.git"
+                target="_blank" class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 - Quadcopter -->
+        <article class="project-card-full project-featured" data-modal="modal-quad">
+          <div class="project-card-image">
+            <img src="assets/dronesim.jpg" alt="Quadcopter Control">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>MATLAB</span>
+              <span>LQR</span>
+              <span>PID</span>
+              <span>MPC</span>
+            </div>
+            <h3 class="project-card-title">Quadcopter Control Simulation</h3>
+            <p class="project-card-desc">
+              Comprehensive quadcopter control system simulation with trajectory tracking
+              capabilities for waypoints, straight-line paths, and helix trajectories.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/Quadcopter_Control_Simulation.git" target="_blank"
+                class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 - Self Balancing -->
+        <article class="project-card-full" data-modal="modal-self">
+          <div class="project-card-image">
+            <img src="assets/self.jpg" alt="Self Balancing Bot">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Arduino</span>
+              <span>PID</span>
+              <span>LQR</span>
+              <span>IMU</span>
+            </div>
+            <h3 class="project-card-title">Self-Balancing Robot</h3>
+            <p class="project-card-desc">
+              Hardware implementation of an inverted pendulum-based self-balancing robot
+              with real-time PID control loop.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/Steady-Stride_Self-balancing-robot.git" target="_blank"
+                class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+
+
+        <!-- Project: Manipulator Trajectory -->
+        <article class="project-card-full" data-modal="modal-manipulator">
+          <div class="project-card-image">
+            <img src="assets/manipulator-3d-trajectory.png" alt="Manipulator Trajectory">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Python</span>
+              <span>Kinematics</span>
+              <span>Control</span>
+              <span>Simulation</span>
+            </div>
+            <h3 class="project-card-title">6-DOF Robotic Arm Planner</h3>
+            <p class="project-card-desc">
+              Custom simulator for 6-DOF robotic arm demonstrating forward/inverse kinematics,
+              trajectory planning, and closed-loop control.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/6DOF-Manipulator-trajectory-planning" target="_blank"
+                class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project: Path Planning Algorithms -->
+        <article class="project-card-full project-featured" data-modal="modal-pathplan">
+          <div class="project-card-image">
+            <img src="assets/path-planners-comparison.png" alt="Path Planning Algorithms">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Python</span>
+              <span>NumPy</span>
+              <span>Matplotlib</span>
+              <span>A* / RRT / PSO</span>
+            </div>
+            <h3 class="project-card-title">Mobile Robot Path Planning Algorithms</h3>
+            <p class="project-card-desc">
+              Comprehensive implementation and visualization of 7 path planning algorithms (A*, RRT, PSO, APF)
+              for differential-drive mobile robots.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/Differential-Drive-Path-planners" target="_blank"
+                class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project: TurtleBot3 PlanSys2 -->
+        <article class="project-card-full" data-modal="modal-turtlebot">
+          <div class="project-card-image">
+            <img src="assets/turtlebot3-house.png" alt="TurtleBot3 PlanSys2">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>ROS 2</span>
+              <span>PlanSys2</span>
+              <span>PDDL</span>
+              <span>Nav2</span>
+            </div>
+            <h3 class="project-card-title">TurtleBot3 AI Task Planning</h3>
+            <p class="project-card-desc">
+              Autonomous task orchestration for TurtleBot3 using PlanSys2 and PDDL domain specification
+              integrated with ROS 2 navigation stack.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/turtlebot3-plansys2" target="_blank" class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 - River Cleaning -->
+        <article class="project-card-full" data-modal="modal-river">
+          <div class="project-card-image">
+            <img src="assets/rivercleaning.png" alt="River Cleaning Robot">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>ROS2</span>
+              <span>Gazebo</span>
+              <span>Jetson</span>
+              <span>PX4</span>
+              <span>Computer Vision</span>
+            </div>
+            <h3 class="project-card-title">River Cleaning Robot</h3>
+            <p class="project-card-desc">
+              Autonomous robot for water body cleanup with advanced navigation and
+              AI-based object detection for waste identification.
+            </p>
+            <div class="project-card-footer">
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 7 - Hand Tracking -->
+        <article class="project-card-full" data-modal="modal-hand">
+          <div class="project-card-image">
+            <img src="assets/handtrackmodel.png" alt="Robotic Wrist Control">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>OpenCV</span>
+              <span>MuJoCo</span>
+              <span>Python</span>
+            </div>
+            <h3 class="project-card-title">Robotic Wrist Control</h3>
+            <p class="project-card-desc">
+              Real-time robotic wrist control using computer vision hand tracking
+              integrated with MuJoCo simulation.
+            </p>
+            <div class="project-card-footer">
+              <a href="https://github.com/Manas-arumalla/Hand-Tracking-Control.git" target="_blank"
+                class="project-card-link">
+                <i class="fa-brands fa-github"></i>
+                <span>View Code</span>
+              </a>
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 8 - Racing Drone -->
+        <article class="project-card-full" data-modal="modal-drone">
+          <div class="project-card-image">
+            <img src="assets/Drone.png" alt="FPV Racing Drone">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>BetaFlight</span>
+              <span>Hardware</span>
+              <span>FPV</span>
+            </div>
+            <h3 class="project-card-title">FPV Racing Drone</h3>
+            <p class="project-card-desc">
+              High-performance racing drone with custom hardware integration,
+              flight calibration, and performance optimization.
+            </p>
+            <div class="project-card-footer">
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 9 - Robo Soccer -->
+        <article class="project-card-full" data-modal="modal-soccer">
+          <div class="project-card-image">
+            <img src="assets/robosoccer.png" alt="Robo Soccer">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Arduino</span>
+              <span>LDR Sensors</span>
+              <span>Motors</span>
+            </div>
+            <h3 class="project-card-title">Opto-Electric Robo Soccer</h3>
+            <p class="project-card-desc">
+              Autonomous soccer-playing robot guided by light signals using
+              LDR sensors for detecting illumination patterns.
+            </p>
+            <div class="project-card-footer">
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 10 - AR/VR Chair -->
+        <article class="project-card-full" data-modal="modal-chair">
+          <div class="project-card-image">
+            <img src="assets/ARVR.jpg" alt="AR/VR Motion Chair">
+            <div class="project-card-overlay"></div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-tags">
+              <span>Fusion 360</span>
+              <span>CAD</span>
+              <span>AR/VR</span>
+            </div>
+            <h3 class="project-card-title">AR/VR Motion Simulator Chair</h3>
+            <p class="project-card-desc">
+              Motion simulator chair for immersive AR/VR experiences with
+              synchronized physical movement and virtual environments.
+            </p>
+            <div class="project-card-footer">
+              <span class="project-card-arrow">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <!-- PharmaBot Modal -->
+  <div id="modal-pharma" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>PharmaBot: Autonomous Medicine Delivery</h2>
+        <p class="modal-subtitle">E-Yantra Competition - IIT Bombay</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/Pharmabot.png" alt="PharmaBot">
+          <div class="modal-video">
+            <iframe src="https://www.youtube.com/embed/Rl8GzILtZo4" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="modal-video">
+            <iframe src="https://www.youtube.com/embed/wk6wSKj-q1c" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>The PharmaBot project was developed as part of the E-Yantra Robotics Competition organized by IIT Bombay.
+            The objective was to design a robot capable of autonomously delivering medicines from a pharmacy to
+            designated houses using efficient path planning and intelligent control.</p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>Path Planning:</strong> Implemented Dijkstra's algorithm to compute shortest routes</li>
+            <li><strong>Computer Vision:</strong> Used OpenCV for detecting road markers and navigation</li>
+            <li><strong>Controller:</strong> Raspberry Pi managed sensors and motors</li>
+            <li><strong>Simulation:</strong> CoppeliaSim for testing and validation</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Python</span>
+            <span>Raspberry Pi</span>
+            <span>OpenCV</span>
+            <span>CoppeliaSim</span>
+            <span>Dijkstra's Algorithm</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/eyrc22_Pharma_Bot.git" target="_blank" class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sony Modal -->
+  <div id="modal-sony" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>COWKIN: Smart Cow Health Monitoring</h2>
+        <p class="modal-subtitle">Sony Spresense University Program (SSUP)</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/Sony.jpg" alt="Sony SSUP Project">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>As part of the Sony Spresense University Program (SSUP), this project developed a Smart Livestock
+            Monitoring System. The system utilizes the Sony Spresense board to track vital parameters such as body
+            temperature, activity levels, and geolocation of cows.</p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>Real-time health parameter monitoring</li>
+            <li>GPS-based geolocation tracking</li>
+            <li>Activity level analysis</li>
+            <li>Early detection of health issues</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Teensey, Esp32, Raspberrypi</span>
+            <span>Iot & Sensors Integration</span>
+            <span>Robot Dynamics</span>
+            <span>Control Systems</span>
+            <span>3D printing, CNC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inverted Pendulum Modal -->
+  <div id="modal-pend" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>Two-Wheeled Inverted Pendulum</h2>
+        <p class="modal-subtitle">Advanced Control Strategies</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/Poleplacement.png" alt="Control Analysis">
+          <video muted autoplay loop playsinline>
+            <source src="assets/Invertedpend.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>This project focused on deriving the dynamics of a two-wheeled inverted pendulum and applying advanced
+            control techniques to stabilize it. Dynamics were modeled in MATLAB and tested in MuJoCo.</p>
+
+          <h3>Control Strategies</h3>
+          <ul>
+            <li>Carleman+LQR</li>
+            <li>DSC+NN+NMPC</li>
+            <li>EPSAC</li>
+            <li>H_inf</li>
+            <li>LPV</li>
+            <li>LQR+L1 adaptive</li>
+            <li>LQR+SMC+Backstepping</li>
+            <li>LQR</li>
+            <li>MPC</li>
+            <li>Pole Placement</li>
+            <li>SMC</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>MATLAB</span>
+            <span>MuJoCo</span>
+            <span>Control Systems</span>
+            <span>Robot Modelling</span>
+            <span>Optimization</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/Control-strategies-for-two-wheeled-inverted-pendulum.git"
+            target="_blank" class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quadcopter Modal -->
+  <div id="modal-quad" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>Quadcopter Control Simulation</h2>
+        <p class="modal-subtitle">Trajectory Tracking & Dynamics</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/dronesim.jpg" alt="Quadcopter Simulation">
+          <video muted autoplay loop playsinline>
+            <source src="assets/quadcoptercontrol.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>Comprehensive simulation of a quadcopter control system capable of accurately following predefined
+            trajectories such as waypoints, straight-line paths, and helixes.</p>
+
+          <h3>Controllers Implemented</h3>
+          <ul>
+            <li>PID Control</li>
+            <li>LQR (Linear Quadratic Regulator)</li>
+            <li>Backstepping Control</li>
+            <li>Model Predictive Control (MPC)</li>
+            <li>Genetic Algorithm tuning</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>MATLAB</span>
+            <span>Simulink</span>
+            <span>Control Systems</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/Quadcopter_Control_Simulation.git" target="_blank"
+            class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Self Balancing Modal -->
+  <div id="modal-self" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>Self-Balancing Robot</h2>
+        <p class="modal-subtitle">Hardware Implementation</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/self.jpg" alt="Self Balancing Bot">
+          <video muted autoplay loop playsinline>
+            <source src="assets/selfbalancingbot.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>Designed and built a self-balancing robot inspired by inverted pendulum dynamics. The system maintains
+            balance on uneven terrains using PID and LQR control strategies.</p>
+
+          <h3>Hardware Components</h3>
+          <ul>
+            <li>Arduino microcontroller</li>
+            <li>IMU sensors (MPU6050)</li>
+            <li>DC motors with encoders</li>
+            <li>Motor driver (L298N)</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Arduino</span>
+            <span>C++</span>
+            <span>PID, LQR Control</span>
+            <span>IMU</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/Steady-Stride_Self-balancing-robot.git" target="_blank"
+            class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Path Planning Algorithms Modal -->
+  <div id="modal-pathplan" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>Mobile Robot Path Planning Algorithms</h2>
+        <p class="modal-subtitle">Comparative Algorithm Analysis</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/path-planners-comparison.png" alt="Path Planning Comparison">
+          <img src="assets/path-planners-astar.png" alt="A* Path Planning">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>A comprehensive implementation of 7 path planning algorithms for differential-drive mobile robots with
+            enhanced visualization capabilities. The project emphasizes comparative algorithm analysis with a modular
+            architecture for easy extension.</p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>Grid-Based:</strong> A* (Euclidean heuristic) and Dijkstra (uniform cost) - both optimal</li>
+            <li><strong>Sampling-Based:</strong> RRT, RRT* (asymptotic rewiring), PRM (Probabilistic Roadmap)</li>
+            <li><strong>Optimization-Based:</strong> PSO (Particle Swarm Optimization) - locally optimal</li>
+            <li><strong>Reactive:</strong> APF (Artificial Potential Fields)</li>
+          </ul>
+
+          <h3>Technical Highlights</h3>
+          <ul>
+            <li>Dark-theme visualization with algorithm-specific color palettes</li>
+            <li>Path gradient effects and glow rendering</li>
+            <li>Robot simulation with trajectory tracking</li>
+            <li>Performance metrics (computational time, path length analysis)</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Python</span>
+            <span>NumPy</span>
+            <span>Matplotlib</span>
+            <span>SciPy</span>
+            <span>A*</span>
+            <span>RRT</span>
+            <span>PRM</span>
+            <span>PSO</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/Differential-Drive-Path-planners" target="_blank"
+            class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TurtleBot3 PlanSys2 Modal -->
+  <div id="modal-turtlebot" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>TurtleBot3 AI Task Planning</h2>
+        <p class="modal-subtitle">ROS 2 + PlanSys2 Integration</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/turtlebot3-house.png" alt="TurtleBot3 Simulation">
+          <img src="assets/turtlebot3-gazebo.png" alt="TurtleBot3 World">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>A ROS 2 project demonstrating autonomous task planning for TurtleBot3 using PlanSys2 AI planning framework.
+            The project showcases PDDL-based domain specification for automated action sequence generation in a washroom
+            cleaning scenario.</p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>AI Planning:</strong> Autonomous task orchestration using PlanSys2</li>
+            <li><strong>PDDL Domain:</strong> Navigate and Clean actions with location predicates</li>
+            <li><strong>Nav2 Integration:</strong> Full navigation stack for path execution</li>
+            <li><strong>Automatic Planning:</strong> Optimal 5-step action sequence generation</li>
+          </ul>
+
+          <h3>Scenario</h3>
+          <p>Robot starts at entry point and must clean two washroom areas (basin, commode) in optimal order. The
+            planner automatically generates the navigation and cleaning sequence.</p>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>ROS 2 Humble</span>
+            <span>PlanSys2</span>
+            <span>PDDL</span>
+            <span>TurtleBot3</span>
+            <span>Nav2</span>
+            <span>Gazebo</span>
+            <span>Python</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/turtlebot3-plansys2" target="_blank" class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6-DOF Manipulator Modal -->
+  <div id="modal-manipulator" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>6-DOF Robotic Arm Trajectory Planning</h2>
+        <p class="modal-subtitle">UR5-Based Simulator</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/manipulator-3d-trajectory.png" alt="3D Trajectory">
+          <img src="assets/manipulator-joints.png" alt="Joint Tracking">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>A Python-based simulator for robotic arm control demonstrating forward/inverse kinematics, trajectory
+            planning, and closed-loop feedback control. Based on the UR5 industrial robot with 6 revolute joints in
+            anthropomorphic configuration.</p>
+
+          <h3>Trajectory Planners</h3>
+          <ul>
+            <li><strong>Cubic Polynomial:</strong> Smooth position and velocity profiles</li>
+            <li><strong>Quintic Polynomial:</strong> Adds smooth acceleration constraints</li>
+            <li><strong>Trapezoidal Velocity:</strong> Constant acceleration/deceleration phases</li>
+          </ul>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>Forward/Inverse Kinematics using Denavit-Hartenberg convention</li>
+            <li>Multi-waypoint path planning support</li>
+            <li>PID control with anti-windup mechanisms</li>
+            <li>3D visualization comparing desired vs actual end-effector paths</li>
+            <li>Comprehensive performance analysis plots</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Python</span>
+            <span>NumPy</span>
+            <span>SciPy</span>
+            <span>Matplotlib</span>
+            <span>DH Convention</span>
+            <span>PID Control</span>
+            <span>Kinematics</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/6DOF-Manipulator-trajectory-planning" target="_blank"
+            class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- River Modal -->
+  <div id="modal-river" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>River Cleaning Robot</h2>
+        <p class="modal-subtitle">Anvi Robotics Internship</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/rivercleaning.png" alt="River Cleaning Robot">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>Contributed to the design and simulation of a river-cleaning robot aimed at addressing water pollution. The
+            system autonomously detects and collects floating waste from water bodies.</p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>ROS2 & Gazebo integration for simulation</li>
+            <li>AI-based object detection for waste identification</li>
+            <li>Autonomous navigation in water bodies</li>
+            <li>Jetson Nano for edge computing</li>
+            <li>PX4 and NAV2 integration for real-time navigation</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>ROS2</span>
+            <span>Gazebo</span>
+            <span>Jetson Nano</span>
+            <span>Computer Vision</span>
+            <span>PX4</span>
+            <span>NAV2</span>
+            <span>Computer vision</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hand Modal -->
+  <div id="modal-hand" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>Robotic Wrist Control</h2>
+        <p class="modal-subtitle">Computer Vision & Simulation</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/handtrackmodel.png" alt="Hand Tracking Model">
+          <video muted autoplay loop playsinline>
+            <source src="assets/Handtrackrun.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>Integrated computer vision with robotics simulation to enable real-time control of a robotic wrist. Using
+            OpenCV and MediaPipe, hand movements were tracked and translated into control commands in MuJoCo.</p>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Python</span>
+            <span>OpenCV</span>
+            <span>MediaPipe</span>
+            <span>MuJoCo</span>
+          </div>
+
+          <a href="https://github.com/Manas-arumalla/Hand-Tracking-Control.git" target="_blank" class="modal-btn">
+            <i class="fa-brands fa-github"></i>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drone Modal -->
+  <div id="modal-drone" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>FPV Racing Drone</h2>
+        <p class="modal-subtitle">Hardware Build</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/Drone.png" alt="Racing Drone">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>Assembled and fine-tuned a high-performance FPV racing drone. Gained expertise in UAV hardware integration,
+            flight calibration using Betaflight, and performance optimization.</p>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>BetaFlight</span>
+            <span>Flight Controller</span>
+            <span>FPV Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soccer Modal -->
+  <div id="modal-soccer" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>Opto-Electric Robo Soccer</h2>
+        <p class="modal-subtitle">Arduino Project</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <video muted autoplay loop playsinline>
+            <source src="assets/robosoccer.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>Autonomous soccer-playing robot guided by light signals. Used LDR sensors to detect illumination patterns
+            and translate them into movement commands.</p>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Arduino</span>
+            <span>LDR Sensors</span>
+            <span>Motor Control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chair Modal -->
+  <div id="modal-chair" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-header">
+        <h2>AR/VR Motion Simulator Chair</h2>
+        <p class="modal-subtitle">7s Technologies Internship</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">
+          <img src="assets/ARVR.jpg" alt="AR/VR Chair">
+        </div>
+        <div class="modal-info">
+          <h3>Overview</h3>
+          <p>Designed a motion simulator chair for immersive AR/VR experiences. The system integrates with VR headsets
+            to synchronize physical movement with virtual environments, enhancing realism.</p>
+
+          <h3>Technologies Used</h3>
+          <div class="modal-tags">
+            <span>Fusion 360</span>
+            <span>CAD Design</span>
+            <span>AR/VR Integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <span class="logo-bracket">{</span>
+            <span class="logo-text">MR</span>
+            <span class="logo-bracket">}</span>
+          </a>
+          <p>Building the future, one robot at a time.</p>
+          <p class="footer-location">Hyderabad, Telangana - India</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+
+        <div class="footer-contact-info">
+          <a href="mailto:manasreddyarumalla@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            manasreddyarumalla@gmail.com
+          </a>
+          <a href="tel:+919700171171">
+            <i class="fa-solid fa-phone"></i>
+            +91 9700171171
+          </a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/manasreddy123" target="_blank" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/manas-reddy-arumalla" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:manasreddyarumalla@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Manas Reddy Arumalla. Crafted with passion.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Projects Page JS -->
+  <script src="projects.js"></script>
+</body>
+
+</html>

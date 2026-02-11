@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Manas Reddy Arumalla - Robotics & Automation Engineer. Building intelligent systems that bridge imagination and reality.">
+  <meta name="keywords" content="Robotics, Automation, Engineer, Portfolio, ROS, Python, Machine Learning, Manas Reddy">
+  <meta name="author" content="Manas Reddy Arumalla">
+
+  <title>Manas Reddy Arumalla | Robotics Engineer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Lottie -->
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
+
+  <!-- GSAP & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <!-- Spline 3D Runtime -->
+  <script type="module">
+    import { Application } from 'https://unpkg.com/@splinetool/runtime@1.9.82/build/runtime.js';
+    // Initialize Spline immediately since the module defers until DOM is ready
+    const canvas = document.getElementById('canvas3d');
+    if (canvas) {
+      const app = new Application(canvas);
+      app.load('https://prod.spline.design/rydbocJHIIC1UzGj/scene.splinecode')
+        .then(() => {
+          console.log('Spline scene loaded');
+          // Pause Spline when scrolled out of hero to save GPU
+          const hero = document.getElementById('home');
+          if (hero && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  app.play();
+                  canvas.style.visibility = 'visible';
+                } else {
+                  app.stop();
+                  canvas.style.visibility = 'hidden';
+                }
+              });
+            }, { threshold: 0.05 });
+            observer.observe(hero);
+          }
+        })
+        .catch((err) => {
+          console.warn('Spline load failed:', err);
+          canvas.style.display = 'none';
+        });
+    }
+  </script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <span class="loader-bracket">{</span>
+        <span class="loader-text">MR</span>
+        <span class="loader-bracket">}</span>
+      </div>
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+      <p class="loader-status">Initializing Systems...</p>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav-logo">
+      <span class="logo-bracket">{</span>
+      <span class="logo-text">MR</span>
+      <span class="logo-bracket">}</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active" data-text="Home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+      <li><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
+      <li><a href="#experience" class="nav-link" data-text="Experience">Experience</a></li>
+      <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+    </ul>
+
+    <a href="assets/Resume.pdf" target="_blank" class="nav-cta">
+      <span>Resume</span>
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-nav-link">Home</a></li>
+      <li><a href="#about" class="mobile-nav-link">About</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+      <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <a href="assets/Resume.pdf" target="_blank" class="mobile-nav-cta">Download Resume</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <!-- Spline 3D Canvas -->
+    <canvas id="canvas3d"></canvas>
+
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+
+
+      <h1 class="hero-title">
+        <span class="title-line">
+          <span class="title-word gradient-text">Crafting</span>
+        </span>
+        <span class="title-line">
+          <span class="title-word">Ideas</span>
+          <span class="title-word">Into</span>
+        </span>
+        <span class="title-line">
+          <span class="title-word">Robots</span>
+        </span>
+      </h1>
+
+      <p class="hero-description">
+        I'm <strong>Manas Reddy Arumalla</strong>, a Robotics & Automation Engineer
+        passionate about building intelligent systems that bridge the gap between
+        imagination and reality.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <span>View Projects</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <span>Get in Touch</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-count="13">0</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="4">0</span>
+          <span class="stat-label">Internships</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="12">0</span>
+          <span class="stat-label">Skills</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll to explore</span>
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">01 / About</span>
+        <h2 class="section-title">
+          Turning Complex Problems<br>
+          Into <span class="gradient-text">Elegant Solutions</span>
+        </h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image-wrapper">
+          <div class="about-image-container">
+            <img src="assets/Profile.jpg" alt="Manas Reddy Arumalla" class="about-image">
+            <div class="about-image-border"></div>
+            <div class="about-image-glow"></div>
+          </div>
+
+          <div class="about-float-card about-float-1">
+            <i class="fa-solid fa-robot"></i>
+            <span>Robotics</span>
+          </div>
+          <div class="about-float-card about-float-2">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Automation</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <p class="about-intro">
+              A Robotics and Automation Engineer passionate about building intelligent
+              systems that combine creativity with technology, driven by a strong curiosity
+              for innovation and problem-solving.
+            </p>
+            <p>
+              With hands-on experience in robotics projects, internships, and research,
+              I am eager to collaborate with organizations where I can apply my skills
+              in robotics and automation to contribute and grow.
+            </p>
+            <p>
+              I thrive in environments where creativity meets technical precision,
+              constantly exploring new technologies and methodologies to push the boundaries
+              of what's possible in robotics and automation.
+            </p>
+          </div>
+
+          <div class="about-details">
+            <div class="detail-item">
+              <span class="detail-label">Location</span>
+              <span class="detail-value">Hyderabad, India</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Education</span>
+              <span class="detail-value">B.Tech in Robotics & Automation</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">University</span>
+              <span class="detail-value">Amrita Vishwa Vidyapeetham</span>
+            </div>
+          </div>
+
+          <div class="about-links">
+            <a href="assets/Resume.pdf" target="_blank" class="about-link">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              <span>Resume</span>
+            </a>
+            <a href="https://www.linkedin.com/in/manas-reddy/" target="_blank" class="about-link">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/Manas-arumalla" target="_blank" class="about-link">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="mailto:manasreddyarumalla@gmail.com" class="about-link">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">02 / Skills</span>
+        <h2 class="section-title">
+          Technical <span class="gradient-text">Expertise</span>
+        </h2>
+        <p class="section-description">
+          A comprehensive toolkit for building intelligent robotic systems
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card" data-category="core">
+          <div class="skill-icon">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3 class="skill-name">Robotics</h3>
+          <p class="skill-desc">End-to-end robot development</p>
+        </div>
+
+        <div class="skill-card" data-category="programming">
+          <div class="skill-icon">
+            <i class="fa-brands fa-python"></i>
+          </div>
+          <h3 class="skill-name">Python</h3>
+          <p class="skill-desc">Primary development language</p>
+        </div>
+
+        <div class="skill-card" data-category="programming">
+          <div class="skill-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="skill-name">C/C++</h3>
+          <p class="skill-desc">Embedded systems & performance</p>
+        </div>
+
+        <div class="skill-card" data-category="robotics">
+          <div class="skill-icon">
+            <i class="fa-solid fa-circle-nodes"></i>
+          </div>
+          <h3 class="skill-name">ROS/ROS2</h3>
+          <p class="skill-desc">Robot Operating System</p>
+        </div>
+
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon">
+            <i class="fa-solid fa-wave-square"></i>
+          </div>
+          <h3 class="skill-name">MATLAB</h3>
+          <p class="skill-desc">Simulation & control design</p>
+        </div>
+
+        <div class="skill-card" data-category="design">
+          <div class="skill-icon">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <h3 class="skill-name">SolidWorks/CAD</h3>
+          <p class="skill-desc">3D mechanical design</p>
+        </div>
+
+        <div class="skill-card" data-category="robotics">
+          <div class="skill-icon">
+            <i class="fa-solid fa-helicopter"></i>
+          </div>
+          <h3 class="skill-name">Drone Control</h3>
+          <p class="skill-desc">UAV systems & flight control</p>
+        </div>
+
+        <div class="skill-card" data-category="ai">
+          <div class="skill-icon">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <h3 class="skill-name">Computer Vision</h3>
+          <p class="skill-desc">OpenCV & image processing</p>
+        </div>
+
+        <div class="skill-card" data-category="ai">
+          <div class="skill-icon">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3 class="skill-name">Machine Learning</h3>
+          <p class="skill-desc">AI integration in robotics</p>
+        </div>
+
+        <div class="skill-card" data-category="industry">
+          <div class="skill-icon">
+            <i class="fa-solid fa-industry"></i>
+          </div>
+          <h3 class="skill-name">Industrial Automation</h3>
+          <p class="skill-desc">PLC & SCADA systems</p>
+        </div>
+
+        <div class="skill-card" data-category="iot">
+          <div class="skill-icon">
+            <i class="fa-solid fa-wifi"></i>
+          </div>
+          <h3 class="skill-name">IoT Systems</h3>
+          <p class="skill-desc">Connected device networks</p>
+        </div>
+
+        <div class="skill-card" data-category="simulation">
+          <div class="skill-icon">
+            <i class="fa-solid fa-cubes"></i>
+          </div>
+          <h3 class="skill-name">Gazebo/CoppeliaSim</h3>
+          <p class="skill-desc">Physics simulation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">03 / Projects</span>
+        <h2 class="section-title">
+          Featured <span class="gradient-text">Work</span>
+        </h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 - Large -->
+        <article class="project-card project-large" onclick="window.location.href='projects.html'">
+          <div class="project-image">
+            <img src="assets/Pharma.png" alt="PharmaBot">
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Raspberry Pi</span>
+              <span class="tag">CoppeliaSim</span>
+              <span class="tag">Python</span>
+              <span class="tag">OpenCV</span>
+            </div>
+            <h3 class="project-title">PharmaBot</h3>
+            <p class="project-desc">Autonomous medicine delivery. Implements Dijkstra's algorithm and computer vision.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/Manas-arumalla/eyrc22_Pharma_Bot.git" target="_blank" class="project-link"
+                onclick="event.stopPropagation()">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <span class="project-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" onclick="window.location.href='projects.html'">
+          <div class="project-image">
+            <img src="assets/dronesim.jpg" alt="Quadcopter Control">
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">MATLAB</span>
+              <span class="tag">LQR</span>
+              <span class="tag">PID</span>
+              <span class="tag">MPC</span>
+            </div>
+            <h3 class="project-title">Quadcopter Control</h3>
+            <p class="project-desc">Simulation with trajectory tracking, waypoints, and helix paths.</p>
+            <div class="project-links">
+              <a href="https://github.com/Manas-arumalla/Quadcopter_Control_Simulation.git" target="_blank"
+                class="project-link" onclick="event.stopPropagation()">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <span class="project-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" onclick="window.location.href='projects.html'">
+          <div class="project-image">
+            <img src="assets/self.jpg" alt="Self Balancing Bot">
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Arduino</span>
+              <span class="tag">PID</span>
+              <span class="tag">LQR</span>
+              <span class="tag">IMU</span>
+            </div>
+            <h3 class="project-title">Self-Balancing Bot</h3>
+            <p class="project-desc">Hardware implementation with real-time PID control loop.</p>
+            <div class="project-links">
+              <a href="https://github.com/Manas-arumalla/Steady-Stride_Self-balancing-robot.git" target="_blank"
+                class="project-link" onclick="event.stopPropagation()">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <span class="project-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" onclick="window.location.href='projects.html'">
+          <div class="project-image">
+            <img src="assets/Sony.jpg" alt="Sony SSUP">
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">IoT & Sensors</span>
+              <span class="tag">Robot Dynamics</span>
+              <span class="tag">Control Systems</span>
+            </div>
+            <h3 class="project-title">Smart Cow Monitor</h3>
+            <p class="project-desc">Real-time livestock health monitoring with geolocation tracking.</p>
+            <div class="project-links">
+              <span class="project-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="projects-hint">Discover more projects like Path Planning Algorithms, 6-DOF Manipulator Control,
+        TurtleBot3 AI Planning, and more in the full archive.</p>
+
+      <div class="projects-cta">
+        <a href="projects.html" class="btn btn-primary btn-large">
+          <span>View All Projects</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section experience">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">04 / Experience</span>
+        <h2 class="section-title">
+          Professional <span class="gradient-text">Journey</span>
+        </h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-info">
+                <h3 class="timeline-role">Robotics Intern</h3>
+                <p class="timeline-company">Sony SSUP, Amrita Vishwa Vidyapeetham</p>
+              </div>
+              <span class="timeline-date">Oct 2023 - Dec 2024</span>
+            </div>
+            <div class="timeline-body">
+              <p><strong>COWKIN: Smart Cow Health Monitoring System</strong></p>
+              <p>A Sony Spresense-based system designed for real-time monitoring of cow health. It tracks vital
+                parameters like temperature, activity, and location, ensuring early detection of health issues and
+                improving livestock management.</p>
+              <div class="timeline-tags">
+                <span>Sony Spresense</span>
+                <span>IoT</span>
+                <span>Sensor Integration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-info">
+                <h3 class="timeline-role">Robotics Intern</h3>
+                <p class="timeline-company">Anvi Robotics, Hyderabad</p>
+              </div>
+              <span class="timeline-date">Jun 2024 - Jul 2024</span>
+            </div>
+            <div class="timeline-body">
+              <p>Developed a River cleaning robot, an innovative robotic system designed to clean water bodies by
+                efficiently collecting floating waste. It integrates advanced navigation and control mechanisms to
+                operate autonomously, contributing to environmental conservation efforts.</p>
+              <div class="timeline-tags">
+                <span>ROS2</span>
+                <span>Gazebo</span>
+                <span>Autonomous Navigation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-info">
+                <h3 class="timeline-role">Design Intern</h3>
+                <p class="timeline-company">7s Technologies, Hyderabad</p>
+              </div>
+              <span class="timeline-date">Mar 2024 - Apr 2024</span>
+            </div>
+            <div class="timeline-body">
+              <p>Developed a smart chair prototype integrating AR/VR technologies to enhance user interaction and
+                immersive experiences. Focused on ergonomic design, sensor integration, and seamless VR environment
+                synchronization.</p>
+              <div class="timeline-tags">
+                <span>AR/VR</span>
+                <span>Fusion 360</span>
+                <span>Sensor Integration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-info">
+                <h3 class="timeline-role">Technical Content Curator</h3>
+                <p class="timeline-company">My Equation, Remote</p>
+              </div>
+              <span class="timeline-date">Dec 2023 - Mar 2024</span>
+            </div>
+            <div class="timeline-body">
+              <p>Curated content for AI/ML projects. Created and managed technical content for AI/ML topics, gaining
+                hands-on experience in explaining complex concepts.</p>
+              <div class="timeline-tags">
+                <span>AI/ML</span>
+                <span>Technical Writing</span>
+                <span>Content Creation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="achievements">
+        <h3 class="achievements-title">Achievements & <span class="gradient-text">Certifications</span></h3>
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div class="achievement-content">
+              <h4>E-Yantra Certificate of Merit</h4>
+              <p>IIT Bombay - National Robotics Competition. Qualified for semifinals (Task 6), gaining proficiency in
+                Python, Raspberry Pi, image processing, CoppeliaSim, and control systems.</p>
+              <span class="achievement-year">2022-2023</span>
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fa-solid fa-chalkboard-teacher"></i>
+            </div>
+            <div class="achievement-content">
+              <h4>ROS2 Workshop Instructor</h4>
+              <p>Delivered sessions on foundational ROS2 concepts and hands-on implementations to guide juniors in
+                robotics development.</p>
+              <span class="achievement-year">2024</span>
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="achievement-content">
+              <h4>Robo AI - Certificate of Appreciation</h4>
+              <p>Awarded for successfully completing the Industrial Training Program with recognition for the major
+                project "Building a Mobile Unmanned Robot".</p>
+              <span class="achievement-year">2023</span>
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fa-solid fa-hands-helping"></i>
+            </div>
+            <div class="achievement-content">
+              <h4>National Service Scheme Camp</h4>
+              <p>Participated in NSS Special Camp contributing to community service, social welfare activities, and
+                rural development initiatives.</p>
+              <span class="achievement-year">2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications" class="section publications">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">05 / Research</span>
+        <h2 class="section-title">
+          Published <span class="gradient-text">Research</span>
+        </h2>
+        <p class="section-subtitle">
+          Contributing to the academic community through peer-reviewed publications
+        </p>
+      </div>
+
+      <div class="publications-grid">
+        <article class="publication-card">
+          <div class="publication-badge">
+            <i class="fa-solid fa-award"></i>
+            <span>IEEE</span>
+          </div>
+          <div class="publication-content">
+            <h3 class="publication-title">Mapping the Dynamics of Robotic Jumps in Hopping Robots</h3>
+            <p class="publication-venue">
+              <i class="fa-solid fa-book"></i>
+              2025 International Conference on Robotics and Mechatronics (ICRM)
+            </p>
+            <p class="publication-authors">
+              <i class="fa-solid fa-users"></i>
+              Anugraha Vincent, <strong>Manasreddy Arumalla</strong>, Vybhav R. Devarakonda, Sivraj P, Rammohan
+              Sriramdas
+            </p>
+            <p class="publication-abstract">
+              Proposes normalized parameters for comparing hopping robots regardless of mass, introducing specific
+              height and specific compression metrics. Validated through simulation and empirical data, providing a
+              scalable framework for assessing hopping mechanisms.
+            </p>
+            <div class="publication-tags">
+              <span>Hopping Robots</span>
+              <span>Energy Normalization</span>
+              <span>Performance Evaluation</span>
+              <span>Mathematical Models</span>
+            </div>
+            <div class="publication-footer">
+              <span class="publication-date">
+                <i class="fa-regular fa-calendar"></i>
+                November 2025
+              </span>
+              <span class="publication-doi">
+                DOI: 10.1109/ICRM66809.2025.11349074
+              </span>
+            </div>
+            <a href="https://ieeexplore.ieee.org/document/11349074" target="_blank" class="publication-link">
+              <span>View on IEEE Xplore</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-content">
+          <span class="section-label">06 / Contact</span>
+          <h2 class="contact-title">
+            Let's Build<br>
+            <span class="gradient-text">Something Amazing</span>
+          </h2>
+          <p class="contact-description">
+            Let's collaborate and innovate together. Open to connecting with passionate learners, researchers, and
+            professionals in robotics and automation.
+          </p>
+
+          <div class="contact-info">
+            <a href="mailto:manasreddyarumalla@gmail.com" class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>manasreddyarumalla@gmail.com</span>
+            </a>
+            <a href="tel:+919700171171" class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9700171171</span>
+            </a>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Hyderabad, Telangana, India</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contact-visual">
+          <div class="contact-card">
+            <div class="card-header">
+              <div class="card-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="card-body">
+              <pre><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-prop">name</span>: <span class="code-string">"Manas Reddy"</span>,
+  <span class="code-prop">role</span>: <span class="code-string">"Robotics Engineer"</span>,
+  <span class="code-prop">passion</span>: <span class="code-string">"Building Robots"</span>,
+  <span class="code-prop">status</span>: <span class="code-string">"Open to Work"</span>,
+  <span class="code-prop">contact</span>: () => {
+    <span class="code-keyword">return</span> <span class="code-string">"Let's connect!"</span>
+  }
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-socials">
+        <a href="https://github.com/Manas-arumalla" target="_blank" class="social-link" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/manas-reddy/" target="_blank" class="social-link" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:manasreddyarumalla@gmail.com" class="social-link" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo">
+            <span class="logo-bracket">{</span>
+            <span class="logo-text">MR</span>
+            <span class="logo-bracket">}</span>
+          </a>
+          <p>Building the future, one robot at a time.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#publications">Research</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/Manas-arumalla" target="_blank" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/manas-reddy/" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:manasreddyarumalla@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Hyderabad, Telangana - India | manasreddyarumalla@gmail.com | +91 9700171171</p>
+        <p>&copy;Manas Reddy Arumalla</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+
+</html>
