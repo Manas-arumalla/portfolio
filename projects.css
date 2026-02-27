@@ -58,6 +58,24 @@
   line-height: 1.8;
 }
 
+/* Text split animation helpers */
+.projects-hero-title .char,
+.projects-hero-title .char-space {
+  display: inline-block;
+}
+
+.projects-hero-title .char-space {
+  width: 0.3em;
+}
+
+.projects-hero-title .gradient-text .char {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+}
+
 /* Projects Section */
 .projects-section {
   padding: var(--space-8) var(--space-8) var(--space-24);

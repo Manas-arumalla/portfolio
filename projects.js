@@ -1,5 +1,6 @@
 /* ==========================================================
    PROJECTS PAGE - JAVASCRIPT
+   Enhanced with scroll animations, text splits, and clip-path reveals
 ========================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,20 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
       infinite: false,
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // Connect Lenis to GSAP ScrollTrigger
+    // Connect Lenis to GSAP ScrollTrigger — single RAF via GSAP ticker
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => {
         lenis.raf(time * 1000);
       });
       gsap.ticker.lagSmoothing(0);
+    } else {
+      // Fallback: drive Lenis with its own RAF only if GSAP isn't available
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
     }
   }
 
@@ -56,16 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
+      cursorDot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
     });
 
+    // Smooth outline following — uses transform for GPU compositing
     function animateCursor() {
       outlineX += (mouseX - outlineX) * 0.15;
       outlineY += (mouseY - outlineY) * 0.15;
 
-      cursorOutline.style.left = outlineX + 'px';
-      cursorOutline.style.top = outlineY + 'px';
+      cursorOutline.style.transform = `translate(${outlineX - 20}px, ${outlineY - 20}px)`;
 
       requestAnimationFrame(animateCursor);
     }
@@ -126,49 +126,119 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // 4. GSAP ANIMATIONS
+  // 4. GSAP ANIMATIONS — ENHANCED
   // ==========================================================
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hero animations - these are above the fold, so animate directly
+    // --- Scroll Progress Bar ---
+    const scrollProgressBar = document.getElementById('scrollProgress');
+    if (scrollProgressBar) {
+      gsap.to(scrollProgressBar, {
+        width: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.3
+        }
+      });
+    }
+
+    // --- Hero: back link slide-in ---
     gsap.from('.back-link', {
       opacity: 0,
-      x: -20,
+      x: -30,
       duration: 0.6,
-      delay: 0.2
+      delay: 0.2,
+      ease: 'power3.out'
     });
 
-    gsap.from('.projects-hero-title', {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      delay: 0.3
-    });
+    // --- Hero title: character-split animation ---
+    const heroTitle = document.querySelector('.projects-hero-title');
+    if (heroTitle) {
+      const chars = splitTextToChars(heroTitle);
+      gsap.fromTo(chars,
+        { opacity: 0, y: 40, rotateX: -90, transformOrigin: 'bottom center' },
+        {
+          opacity: 1, y: 0, rotateX: 0,
+          duration: 0.6, stagger: 0.025, delay: 0.3,
+          ease: 'back.out(1.5)'
+        }
+      );
+    }
 
+    // --- Hero description ---
     gsap.from('.projects-hero-desc', {
       opacity: 0,
       y: 30,
       duration: 0.8,
-      delay: 0.5
+      delay: 0.6,
+      ease: 'power3.out'
     });
 
-    // Project cards animation - using fromTo for better control
-    gsap.fromTo('.project-card-full',
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.projects-grid-full',
-          start: 'top 90%',
-          once: true
-        }
+    // --- Parallax depth layers ---
+    gsap.utils.toArray('.parallax-shape').forEach(shape => {
+      const speed = parseFloat(shape.getAttribute('data-speed')) || 0.05;
+      const section = shape.closest('section') || shape.closest('.projects-hero');
+      if (section) {
+        gsap.to(shape, {
+          y: () => window.innerHeight * speed * (speed > 0 ? -1 : 1),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
       }
-    );
+    });
+
+    // --- Project cards: clip-path image reveal + staggered 3D entrance ---
+    gsap.utils.toArray('.project-card-full').forEach((card, i) => {
+      const img = card.querySelector('.project-card-image img');
+
+      // Image clip-path reveal
+      if (img) {
+        gsap.fromTo(img,
+          { clipPath: 'inset(100% 0 0 0)' },
+          {
+            clipPath: 'inset(0% 0 0 0)',
+            duration: 1.2,
+            ease: 'power3.inOut',
+            scrollTrigger: { trigger: card, start: 'top 85%', once: true }
+          }
+        );
+      }
+
+      // Card entrance with 3D rotation
+      gsap.fromTo(card,
+        {
+          opacity: 0,
+          y: 60,
+          rotateX: -8,
+          scale: 0.95,
+          transformPerspective: 1200
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          scale: 1,
+          duration: 0.9,
+          delay: i * 0.08,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 88%',
+            once: true
+          }
+        }
+      );
+    });
+
   } else {
     // No GSAP - show everything immediately
     document.querySelectorAll('.project-card-full').forEach(card => {
@@ -242,9 +312,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('no-scroll');
         document.body.style.overflow = 'hidden';
 
-        // Destroy Lenis while modal is open to free up wheel events
+        // Pause Lenis while modal is open to free up wheel events
         if (lenis) {
-          lenis.destroy();
+          lenis.stop();
         }
 
         // Scroll modal to top
@@ -264,36 +334,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Reinitialize Lenis
+  // Resume Lenis (no re-creation needed — just unpause the existing instance)
   function reinitLenis() {
-    if (typeof Lenis !== 'undefined') {
-      lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
-        infinite: false,
-      });
-
-      function raf(time) {
-        if (!modalOpen) {
-          lenis.raf(time);
-        }
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-
-      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => {
-          if (!modalOpen) {
-            lenis.raf(time * 1000);
-          }
-        });
-      }
+    if (lenis) {
+      lenis.start();
     }
   }
 
@@ -413,3 +457,50 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// ==========================================================
+// SPLIT TEXT INTO CHARACTERS FOR ANIMATION
+// ==========================================================
+function splitTextToChars(element) {
+  if (!element || element.querySelector('.char')) return element ? element.querySelectorAll('.char') : [];
+
+  const nodes = Array.from(element.childNodes);
+  element.innerHTML = '';
+
+  function processText(text, parent) {
+    const trimmed = text.replace(/\s+/g, ' ');
+    if (!trimmed.trim()) return;
+
+    trimmed.split('').forEach(char => {
+      if (char === ' ') {
+        const space = document.createElement('span');
+        space.className = 'char-space';
+        space.innerHTML = '&nbsp;';
+        parent.appendChild(space);
+      } else {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = char;
+        parent.appendChild(span);
+      }
+    });
+  }
+
+  nodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      processText(node.textContent, element);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      if (node.tagName === 'BR') {
+        element.appendChild(node.cloneNode());
+        return;
+      }
+      const clone = node.cloneNode(false);
+      processText(node.textContent, clone);
+      if (clone.childNodes.length > 0) {
+        element.appendChild(clone);
+      }
+    }
+  });
+
+  return element.querySelectorAll('.char');
+}
