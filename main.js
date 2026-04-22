@@ -168,21 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update active link based on scroll position
         let current = '';
 
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 200;
-          const sectionHeight = section.offsetHeight;
+        if (currentScroll < 50) {
+          current = 'home';
+        } else {
+          sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 200 && rect.bottom > 200) {
+              current = section.getAttribute('id');
+            }
+          });
+        }
 
-          if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-          }
-        });
+        if (current) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+              link.classList.add('active');
+            }
+          });
+        }
 
         scrollTicking = false;
       });
